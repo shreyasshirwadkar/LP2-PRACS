@@ -1,4 +1,4 @@
-![cc transfer from one vm to another.jpg](attachment:c6375a8e-ead0-4ba8-bb22-fd4de8239f69:cc_transfer_from_one_vm_to_another.jpg)
+scp transfer.txt ubuntu@172.168.2.5:/home/ubuntu
 
 Library Management System
 
