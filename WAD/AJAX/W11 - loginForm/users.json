@@ -1,0 +1,29 @@
+[
+  {
+    "name": "Shreyas Shirwadkar",
+    "email": "shreyas.shirwadkar@gmail.com",
+    "mobile": "7666521232",
+    "dob": "2025-04-30",
+    "city": "Pune",
+    "address": "Dhankawadi,Pune",
+    "password": "123456"
+  },
+  {
+    "name": "Shreya1s Shirwadkar1",
+    "email": "shreyas.shirwadkar1@gmail.com",
+    "mobile": "7666521232",
+    "dob": "2025-05-02",
+    "city": "Pune",
+    "address": "Dhankawadi,Pune",
+    "password": "123456"
+  },
+  {
+    "name": "Shreyas Shirwadkar2",
+    "email": "shreyas.shirwadkar2@gmail.com",
+    "mobile": "7666521232",
+    "dob": "2025-05-15",
+    "city": "Pune",
+    "address": "Dhankawadi,Pune",
+    "password": "11111111111111111"
+  }
+]

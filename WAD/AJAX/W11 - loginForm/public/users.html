@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Registered Users</title>
+  <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+  <h2>List of Registered Users</h2>
+  <table border="1">
+    <thead>
+      <tr>
+        <th>Name</th><th>Email</th><th>Mobile</th>
+        <th>DOB</th><th>City</th><th>Address</th>
+      </tr>
+    </thead>
+    <tbody id="userTable"></tbody>
+  </table>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  <script>
+
+    $.ajax({
+      url:"http://localhost:3000/users",
+      method: "GET",
+      success: function(res){
+        const users = res.users;
+        const tbody = document.getElementById('userTable');
+        tbody.innerHTML = "";
+        users.forEach(u=>{
+          let row = `<tr>
+            <td>${u.name}</td>
+            <td>${u.email}</td>
+            <td>${u.mobile}</td>
+            <td>${u.dob}</td>
+            <td>${u.city}</td>
+            <td>${u.address}</td>
+            </tr>
+            `;
+            tbody.innerHTML+=row;
+        },
+     )
+      },
+      error:function(xhr){
+        alert("Failed to load users: "+xhr.responseText);        
+      }
+    })
+    // Initial load
+
+// Listen to custom update event
+  </script>
+</body>
+</html>
