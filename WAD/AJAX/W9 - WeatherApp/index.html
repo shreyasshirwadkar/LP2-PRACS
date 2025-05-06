@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Application</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        .weather-card { margin-top: 20px; }
+        .error-message { color: red; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center mt-5">Weather Application</h1>
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="input-group mt-4">
+                    <input type="text" id="cityInput" class="form-control" placeholder="Enter City Name" />
+                    <div class="input-group-append">
+                        <button class="btn btn-primary" id="fetchWeatherBtn">Get Weather</button>
+                    </div>
+                </div>
+                <div id="weatherInfo" class="weather-card"></div>
+                <div id="errorMessage" class="error-message"></div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
