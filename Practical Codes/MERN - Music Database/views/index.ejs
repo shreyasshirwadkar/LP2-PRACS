@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Music Database</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+
+<body>
+    <h1>Music Database App</h1>
+    <h3>(using Node.js, MongoDB and Express.js)</h3>
+
+    <hr>
+    <h2>Insert Song</h2>
+    <form method="POST" action="/songs">
+        <label for="songname">Song Name:</label>
+        <input type="text" id="songname" name="songname" required>
+        <label for="film">Film:</label>
+        <input type="text" id="film" name="film" required>
+        <label for="music_director">Music Director:</label>
+        <input type="text" id="music_director" name="music_director" required>
+        <label for="singer">Singer:</label>
+        <input type="text" id="singer" name="singer" required>
+        <button type="submit">Insert Song</button>
+    </form>
+
+    <hr>
+    <h2>Songs Filter</h2>
+    <form method="GET" action="/songs/filter">
+        <label for="film-filter">Film:</label>
+        <input type="text" id="film-filter" name="film" value="<%= filter.film %>">
+        <label for="music-director-filter">Music Director:</label>
+        <input type="text" id="music-director-filter" name="music_director" value="<%= filter.music_director %>">
+        <label for="singer-filter">Singer:</label>
+        <input type="text" id="singer-filter" name="singer" value="<%= filter.singer %>">
+        <button type="submit">Filter</button>
+    </form>
+
+    <hr>
+    <h2>Songs (Count: <%= count %>)</h2>
+    <table>
+        <tr>
+            <th>Song Name</th>
+            <th>Film</th>
+            <th>Music Director</th>
+            <th>Singer</th>
+            <th>Actions</th>
+        </tr>
+        <% songs.forEach(song=> { %>
+            <tr>
+                <td>
+                    <%= song.songname %>
+                </td>
+                <td>
+                    <%= song.film %>
+                </td>
+                <td>
+                    <%= song.music_director %>
+                </td>
+                <td>
+                    <%= song.singer %>
+                </td>
+                <td>
+                    <form method="POST" action="/songs/<%= song._id %>/delete" style="display: inline;" id="action-button">
+                        <button type="submit" id="delete-button">Delete</button>
+                    </form>
+                </td>
+            </tr>
+            <% }) %>
+    </table>
+</body>
+
+</html>

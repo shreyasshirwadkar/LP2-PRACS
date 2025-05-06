@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Student Database</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+
+<body>
+    <h1>Student Marks Database App</h1>
+    <h3>(using Node.js, MongoDB and Express.js)</h3>
+
+    <hr>
+    <h2>Add Student Marks</h2>
+    <form method="POST" action="/students">
+        <label for="Name">Name:</label>
+        <input type="text" id="Name" name="Name" required>
+        <br>
+        <label for="RollNo">Roll No:</label>
+        <input type="text" id="RollNo" name="RollNo" required>
+        <br>
+        <label for="WAD">WAD:</label>
+        <input type="number" id="WAD" name="WAD" required>
+        <br>
+        <label for="CC">CC:</label>
+        <input type="number" id="CC" name="CC" required>
+        <br>
+        <label for="DSBDA">DSBDA:</label>
+        <input type="number" id="DSBDA" name="DSBDA" required>
+        <br>
+        <label for="CNS">CNS:</label>
+        <input type="number" id="CNS" name="CNS" required>
+        <br>
+        <label for="AI">AI:</label>
+        <input type="number" id="AI" name="AI" required>
+        <br>
+        <button type="submit">Add Student</button>
+    </form>
+
+    <hr>
+    <h2>Filter Students</h2>
+    <form method="GET" action="/students/filter">
+        <label for="subject">Subject:</label>
+        <div class="select-container">
+            <select id="subject" name="subject">
+                <option value="">Select Subject</option>
+                <option value="WAD">WAD</option>
+                <option value="CC">CC</option>
+                <option value="DSBDA">DSBDA</option>
+                <option value="CNS">CNS</option>
+                <option value="AI">AI</option>
+            </select>
+        </div>
+        <br>
+        <label for="min">Minimum Marks:</label>
+        <input type="number" id="min" name="min" required>
+        <br>
+        <label for="max">Maximum Marks:</label>
+        <input type="number" id="max" name="max" required>
+        <br>
+        <button type="submit">Filter</button>
+    </form>
+
+    <hr>
+    <h2>Students List (Count: <%= count %>)</h2>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Roll No.</th>
+            <th>WAD</th>
+            <th>CC</th>
+            <th>DSBDA</th>
+            <th>CNS</th>
+            <th>AI</th>
+            <th>Actions</th>
+        </tr>
+        <% students.forEach(student=> { %>
+            <tr>
+                <td>
+                    <%= student.Name %>
+                </td>
+                <td>
+                    <%= student.RollNo %>
+                </td>
+                <td>
+                    <%= student.WAD %>
+                </td>
+                <td>
+                    <%= student.CC %>
+                </td>
+                <td>
+                    <%= student.DSBDA %>
+                </td>
+                <td>
+                    <%= student.CNS %>
+                </td>
+                <td>
+                    <%= student.AI %>
+                </td>
+                <td>
+                    <form method="GET" action="/students/<%= student._id %>/edit" style="display: inline;"
+                        class="action-button">
+                        <button type="submit" id="edit-button">Edit</button>
+                    </form>
+
+                    <form method="POST" action="/students/<%= student._id %>/delete" style="display: inline;"
+                        class="action-button">
+                        <button type="submit" id="delete-button">Delete</button>
+                    </form>
+                </td>
+            </tr>
+            <% }) %>
+    </table>
+</body>
+
+</html>

@@ -1,0 +1,7 @@
+[
+  { "city": "Pune", "temperature": 28, "humidity": 60 },
+  { "city": "Mumbai", "temperature": 32, "humidity": 70 },
+  { "city": "Delhi", "temperature": 35, "humidity": 50 },
+  { "city": "Bangalore", "temperature": 25, "humidity": 55 },
+  { "city": "Chennai", "temperature": 31, "humidity": 65 }
+]
