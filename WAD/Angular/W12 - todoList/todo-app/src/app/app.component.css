@@ -1,0 +1,9 @@
+.container {
+    max-width: 600px;
+  }
+  
+  .text-decoration-line-through {
+    text-decoration: line-through;
+    color: gray;
+  }
+  

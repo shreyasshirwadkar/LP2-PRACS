@@ -1,0 +1,28 @@
+<div class="container mt-5">
+  <h2>Angular To-Do List</h2>
+
+  <div class="mb-3">
+    <input [(ngModel)]="taskName" class="form-control" placeholder="New task" />
+    <button class="btn btn-primary mt-2" (click)="addTask()">Add Task</button>
+  </div>
+
+  <ul class="list-group">
+    <li class="list-group-item d-flex justify-content-between align-items-center"
+        *ngFor="let task of tasks">
+      <span [ngClass]="{ 'text-decoration-line-through': task.completed }"
+            (click)="toggleCompleted(task.id)">
+        {{ task.name }}
+      </span>
+      <div>
+        <button class="btn btn-sm btn-warning me-1" (click)="editTask(task.id)">Edit</button>
+        <button class="btn btn-sm btn-danger" (click)="deleteTask(task.id)">Delete</button>
+      </div>
+    </li>
+  </ul>
+
+  <!-- Edit section -->
+  <div class="mt-4" *ngIf="editId !== null">
+    <input [(ngModel)]="taskEdit" class="form-control" />
+    <button class="btn btn-success mt-2" (click)="saveEdit()">Save Changes</button>
+  </div>
+</div>
