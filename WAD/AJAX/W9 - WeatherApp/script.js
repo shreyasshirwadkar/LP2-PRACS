@@ -17,7 +17,6 @@ $(document).ready(function () {
     $.ajax({
       url: "weatherData.json", // Local repository with weather data
       method: "GET",
-      dataType: "json",
       success: function (data) {
         if (data[city]) {
           const weather = data[city];
